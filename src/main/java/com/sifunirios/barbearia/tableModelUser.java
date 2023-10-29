@@ -13,14 +13,16 @@ public class tableModelUser extends AbstractTableModel {
         this.fireTableDataChanged();
     }
     
-    /*public boolean validarUsuario(String login, String senha){
-        for(int x=0; x<=5 ; x++){
-            for(int y=0; y<=5; y++){
-                user.get()
-            }
-        }  
-    } teste2
-    */
+    public boolean validarUsuario(String login, String senha){
+        int indexLogin = 0, indexSenha = 1;
+        
+        for(int x=0; x<=user.size() ; x++){
+            String loginCad = (String) getValueAt(x,indexLogin);
+            String senhaCad = (String) getValueAt(x,indexSenha);
+            return loginCad.equals(login) && senhaCad.equals(senha);
+        }
+        return false;
+    } 
     
     @Override
     public int getRowCount() {

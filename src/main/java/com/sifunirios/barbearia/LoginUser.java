@@ -38,6 +38,8 @@ public class LoginUser extends javax.swing.JFrame {
         telaUsuarios = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbUser = new javax.swing.JTable();
+        telaPrincipal = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Barbex Shop");
@@ -134,9 +136,9 @@ public class LoginUser extends javax.swing.JFrame {
         telaLoginLayout.setVerticalGroup(
             telaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(telaLoginLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(106, 106, 106)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(logLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addComponent(labSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,7 +201,6 @@ public class LoginUser extends javax.swing.JFrame {
 
         btnCadastrar.setBackground(new java.awt.Color(153, 153, 153));
         btnCadastrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnCadastrar.setForeground(new java.awt.Color(0, 0, 0));
         btnCadastrar.setText("CADASTRAR");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +301,32 @@ public class LoginUser extends javax.swing.JFrame {
 
         getContentPane().add(telaUsuarios, "card4");
 
+        telaPrincipal.setBackground(new java.awt.Color(0, 0, 0));
+        telaPrincipal.setMinimumSize(new java.awt.Dimension(350, 600));
+
+        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("BEM VINDO AO BARBERSHOP");
+
+        javax.swing.GroupLayout telaPrincipalLayout = new javax.swing.GroupLayout(telaPrincipal);
+        telaPrincipal.setLayout(telaPrincipalLayout);
+        telaPrincipalLayout.setHorizontalGroup(
+            telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaPrincipalLayout.createSequentialGroup()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        telaPrincipalLayout.setVerticalGroup(
+            telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaPrincipalLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(279, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(telaPrincipal, "card5");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -315,9 +342,14 @@ public class LoginUser extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         String login = logLogin.getText();
         String senha = logSenha.getText();
-        
-        //telaLogin.setVisible(false);
-        //telaMenuPrincipal.setVisible(true);
+        boolean logar = this.model.validarUsuario(login, senha);
+        if(logar == true){
+            JOptionPane.showMessageDialog(this,"Logado!");
+        }else{
+            JOptionPane.showMessageDialog(this,"Não Logado!");
+        }
+        telaLogin.setVisible(false);
+        telaPrincipal.setVisible(true);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -398,6 +430,7 @@ public class LoginUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labLogin1;
     private javax.swing.JLabel labSenha;
@@ -406,6 +439,7 @@ public class LoginUser extends javax.swing.JFrame {
     private javax.swing.JTable tbUser;
     private javax.swing.JPanel telaCadastro;
     private javax.swing.JPanel telaLogin;
+    private javax.swing.JPanel telaPrincipal;
     private javax.swing.JPanel telaUsuarios;
     private javax.swing.JLabel tituloCadastro;
     private javax.swing.JLabel tituloNome;
