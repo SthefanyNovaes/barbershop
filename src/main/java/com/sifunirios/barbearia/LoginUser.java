@@ -345,11 +345,11 @@ public class LoginUser extends javax.swing.JFrame {
         boolean logar = this.model.validarUsuario(login, senha);
         if(logar == true){
             JOptionPane.showMessageDialog(this,"Logado!");
+            telaLogin.setVisible(false);
+            telaPrincipal.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(this,"Não Logado!");
         }
-        telaLogin.setVisible(false);
-        telaPrincipal.setVisible(true);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
