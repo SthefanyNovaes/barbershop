@@ -6,15 +6,15 @@ import javax.swing.table.AbstractTableModel;
 public class tableModelUser extends AbstractTableModel {
     
     static ArrayList<User> user = new ArrayList();
-    String[] colunaUser = {"Nome", "Senha", "Telefone", "Email"};
-    
+    String[] colunaUser = {"Nome", "Login", "Senha", "Telefone", "Email"};
+        
     public void cadastrarUsuario(User u){
         user.add(u);
         this.fireTableDataChanged();
     }
     
     public boolean validarUsuario(String login, String senha){
-        int indexLogin = 0, indexSenha = 1;
+        int indexLogin = 1, indexSenha = 2;
         
         for(int x=0; x<=user.size() ; x++){
             String loginCad = (String) getValueAt(x,indexLogin);
@@ -43,8 +43,9 @@ public class tableModelUser extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         return switch (columnIndex) {
             case 0 -> user.get(rowIndex).getNome();
-            case 1 -> user.get(rowIndex).getSenha();
-            case 2 -> user.get(rowIndex).getTel();
+            case 1 -> user.get(rowIndex).getLogin();
+            case 2 -> user.get(rowIndex).getSenha();
+            case 3 -> user.get(rowIndex).getTel();
             default -> user.get(rowIndex).getEmail();
         };
     }

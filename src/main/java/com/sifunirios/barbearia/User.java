@@ -2,12 +2,14 @@ package com.sifunirios.barbearia;
 
 public class User {
     private String nome;
+    private String login;
     private String senha;
     private String tel;
     private String email;
     
-    public User(String nome, String senha, String tel, String email){
+    public User(String nome, String login, String senha, String tel, String email){
         this.nome = nome;
+        this.login = login;
         this.senha = senha;
         this.tel = tel;
         this.email = email;
@@ -21,6 +23,14 @@ public class User {
         this.nome = nome;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+    
     public String getSenha() {
         return senha;
     }
